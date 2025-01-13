@@ -1,32 +1,45 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
+  <div
+    id="app"
+    class="h-screen w-screen flex items-center justify-center bg-background-primary p-6 sm:p-0 sm:pt-16"
+  >
+    <FlashMessage v-show="isFlashMessageVisible" />
+
+    <template v-if="shouldShowHeaderAndSideNav">
+      <CustomHeader @open-side-nav="showSideNav = true" />
+      <SideNav @close-side-nav="showSideNav = false" :isOpen="showSideNav" />
+    </template>
+
     <router-view />
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import CustomHeader from "@/components/CustomHeader.vue";
+import SideNav from "@/components/SideNav.vue";
+import FlashMessage from "@/components/FlashMessage.vue";
 
-nav {
-  padding: 30px;
-}
+import { mapGetters } from "vuex";
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+export default {
+  components: {
+    CustomHeader,
+    SideNav,
+    FlashMessage,
+  },
+  data() {
+    return {
+      showSideNav: false,
+    };
+  },
+  computed: {
+    ...mapGetters({
+      isFlashMessageVisible: "flashMessage/visible",
+    }),
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+    shouldShowHeaderAndSideNav() {
+      return this.$route.name !== "Login";
+    },
+  },
+};
+</script>
