@@ -26,7 +26,10 @@
           class="text-grey-light hover:text-purple-main transition duration-200"
           @click="logout"
         >
-          Logout
+          <font-awesome-icon
+            :icon="['fas', 'arrow-right-from-bracket']"
+            class="text-purple-main text-2xl"
+          />
         </button>
       </nav>
 

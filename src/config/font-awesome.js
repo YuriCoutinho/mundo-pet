@@ -8,8 +8,30 @@ import {
   faPaw,
   faBars,
   faTimes,
+  faUserTie,
+  faPen,
+  faTrash,
+  faIdCard,
+  faPhone,
+  faEnvelope,
+  faSpinner,
+  faArrowRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faUser, faKey, faPaw, faBars, faTimes);
+library.add(
+  faUser,
+  faKey,
+  faPaw,
+  faBars,
+  faTimes,
+  faUserTie,
+  faPen,
+  faTrash,
+  faIdCard,
+  faPhone,
+  faEnvelope,
+  faSpinner,
+  faArrowRightFromBracket
+);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);

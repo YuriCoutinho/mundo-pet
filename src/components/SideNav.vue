@@ -26,7 +26,10 @@
           class="text-white text-lg hover:text-purple-main inline-flex"
           @click="logout"
         >
-          Logout
+          <font-awesome-icon
+            :icon="['fas', 'arrow-right-from-bracket']"
+            class="text-purple-main text-6xl mb-2"
+          />
         </button>
       </nav>
     </div>

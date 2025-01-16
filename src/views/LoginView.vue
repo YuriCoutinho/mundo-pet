@@ -60,6 +60,7 @@ export default {
   },
   methods: {
     async handleFormSubmit() {
+      console.log("teste");
       this.isLoading = true;
 
       try {

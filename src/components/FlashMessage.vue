@@ -1,11 +1,8 @@
 <template>
   <transition name="fade">
     <div
-      class="fixed top-0 left-0 w-full py-4 text-center font-semibold z-50"
-      :class="[
-        { 'bg-green-main text-white': type === 'success' },
-        { 'bg-alert text-white': type === 'error' },
-      ]"
+      class="fixed top-0 left-0 w-full py-4 text-center text-white font-semibold z-2 bg-green"
+      :class="type === 'error' ? 'bg-red-600' : 'bg-green-400'"
     >
       {{ message }}
     </div>
